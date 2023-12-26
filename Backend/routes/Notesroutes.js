@@ -4,8 +4,7 @@ const router=express.Router()
 
 
 router.post('/',async(req,res)=>{
-    console.log('requeested')
-    console.log(req.body.content)
+    
     try{
         
         const newNote={
