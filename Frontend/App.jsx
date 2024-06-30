@@ -12,7 +12,7 @@ export default function App() {
 
        
         React.useEffect(()=>{ 
-            axios.get('http://localhost:5000/notes')
+            axios.get('https://notes-self-six.vercel.app/notes')
             .then((response)=>{
                 setNotes(response.data)
             })
@@ -38,7 +38,7 @@ export default function App() {
         const newNote={
             content: JSON.stringify("# Type your markdown note's title here")
         }
-        axios.post('http://localhost:5000/notes/',newNote)
+        axios.post('https://notes-self-six.vercel.app/notes/',newNote)
         .then((response) => {
             console.log(response.data);
             setCurrentNoteId(response.data._id)
@@ -52,7 +52,7 @@ export default function App() {
 
     function updateNote(text) {
         console.log(text.content)
-        const url=`http://localhost:5000/notes/${currentNoteId}`
+        const url=`https://notes-self-six.vercel.app/notes/${currentNoteId}`
         const newNote = {
             content: text
         }
@@ -70,7 +70,7 @@ export default function App() {
 
     function deleteNote(event,noteId) {
     
-        const url=`http://localhost:5000/notes/${noteId}`
+        const url=`https://notes-self-six.vercel.app/notes/${noteId}`
         
         axios.delete(url)
         .then((response) => {
