@@ -7,7 +7,11 @@ import cors from 'cors'
 const mongoDBURL="mongodb+srv://piyushguptapg1704:piyush123@cluster0.xyfevwg.mongodb.net/?retryWrites=true&w=majority"
 const app=express()
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin:["https://notes-jade-delta.vercel.app"],
+    methods:["POST","GET","PUT","DELETE"],
+    credentials:true
+}))
 
 app.use('/notes',Notesroutes)
 
